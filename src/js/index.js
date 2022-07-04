@@ -10,7 +10,7 @@ import {
 } from './state.js';
 
 // dom elements registry
-const stateSelectEl = document.getElementById('state-select');
+const stateSelectEl = document.getElementById('state');
 const amountInputEl = document.getElementById('amount');
 const tipInputEl = document.getElementById('tip');
 const discountInputEl = document.getElementById('discount');
@@ -43,7 +43,6 @@ const hasRequiredFields = ({tax, amount}) => {
 }
 
 const calculate = (state = {}) => {
-    console.log('state:', state);
     if (!hasRequiredFields(state)) {
         return;
     }
@@ -54,7 +53,6 @@ const calculate = (state = {}) => {
     const discount = subDiscount(state?.discount);
 
     const total = curriedBill(tax)(amount)(tip)(discount);
-    console.log('total:', total);
     totalOutputEl.innerText = total;
 }
 
