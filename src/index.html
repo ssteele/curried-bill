@@ -11,26 +11,18 @@
 <div id="curried-bill">
     <section id="state">
         <select name="state" id="state-select">
+            <option value="">--Select a state--</option>
             <option value="ca">California</option>
             <option value="tx">Texas</option>
         </select>
     </section>
 
-    <section id="discount">
+    <section id="amount">
         <input
             type="text"
-            id="discount-code"
-            name="discount-code"
-            placeholder="Discount Code"
-        >
-    </section>
-
-    <section id="subtotal">
-        <input
-            type="text"
-            id="subtotal"
-            name="subtotal"
-            placeholder="Subtotal"
+            id="amount"
+            name="amount"
+            placeholder="Amount"
         >
     </section>
 
@@ -39,8 +31,21 @@
             type="text"
             id="tip"
             name="tip"
-            placeholder="Tip"
+            placeholder="Tip percent"
         >
+    </section>
+
+    <section id="discount">
+        <input
+            type="text"
+            id="discount-code"
+            name="discount-code"
+            placeholder="Discount code"
+        >
+    </section>
+
+    <section>
+        Total: <span id="total"></span>
     </section>
 </div>
 
