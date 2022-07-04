@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<div id="curried-bill">
-    <section id="state">
+<main id="curried-bill">
+    <section id="state" class="field">
         <select name="state" id="state-select">
             <option value="">--Select a state--</option>
             <option value="ca">California</option>
@@ -17,7 +17,7 @@
         </select>
     </section>
 
-    <section id="amount">
+    <section id="amount" class="field">
         <input
             name="amount"
             id="amount"
@@ -27,7 +27,7 @@
         >
     </section>
 
-    <section id="tip">
+    <section id="tip" class="field">
         <input
             name="tip"
             id="tip"
@@ -37,20 +37,20 @@
         >
     </section>
 
-    <section id="discount">
+    <section id="discount" class="field">
         <input
-            name="discount-code"
-            id="discount-code"
+            name="discount"
+            id="discount"
             type="number"
             min="0"
-            placeholder="Discount code"
+            placeholder="Discount amount"
         >
     </section>
 
-    <section>
+    <section class="total">
         Total: <span id="total"></span>
     </section>
-</div>
+</main>
 
 <script type="module" src="./dist/index.js"></script>
 </body>

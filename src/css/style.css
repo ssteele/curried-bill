@@ -1,0 +1,27 @@
+body {
+    background: #33333c;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto;
+    width: 250px;
+}
+
+.field {
+    flex: 1 100%;
+    margin-top: -1px;
+}
+
+input,
+select {
+    box-sizing: border-box;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+.total {
+    color: #ccc;
+    margin-top: 1rem;
+}
