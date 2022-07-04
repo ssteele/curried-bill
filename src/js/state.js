@@ -7,12 +7,20 @@ export const state = {
 };
 
 export const setTax = (tax = 0) => {
-    state.tax = parseFloat(tax);
+    state.tax = 0;
+    const floatedTax = parseFloat(tax);
+    if (!isNaN(floatedTax)) {
+        state.tax = floatedTax;
+    }
     return state.tax;
 };
 
 export const setAmount = (amount = 0) => {
-    state.amount = parseFloat(amount);
+    state.amount = 0;
+    const floatedAmount = parseFloat(amount);
+    if (!isNaN(floatedAmount)) {
+        state.amount = floatedAmount;
+    }
     return state.amount;
 };
 
