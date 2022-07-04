@@ -56,6 +56,17 @@ const calculate = (state = {}) => {
     totalOutputEl.innerText = total;
 }
 
+// state select
+const renderStateSelect = (states) => {
+    const stateOptions = states.map((i) => {
+        return `<option value="${i.id}">${i.name} (${i.salesTax})</option>`;
+    });
+    stateSelectEl.innerHTML = `
+        <option value="">-- Select a state --</option>
+        ${stateOptions}
+    `;
+};
+
 // handle state select
 stateSelectEl.addEventListener('change', (e) => {
     const stateId = e?.target?.value;
@@ -84,3 +95,6 @@ discountInputEl.addEventListener('change', (e) => {
     setDiscount(discount);
     calculate(state);
 });
+
+// initialize
+renderStateSelect(states);
