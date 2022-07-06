@@ -2,7 +2,7 @@
 export const state = {
     amount: null,
     discount: 0,
-    tax: null,
+    tax: 0,
     tip: 0,
 };
 

@@ -8,22 +8,37 @@ main {
     flex-wrap: wrap;
     margin: 0 auto;
     min-height: 98vh;
-    width: 250px;
+    width: 350px;
 }
 
 .field {
-    flex: 1 100%;
     margin-top: -1px;
 }
 
+.label,
 input,
 select {
     box-sizing: border-box;
     padding: 0.75rem;
-    width: 100%;
+    width: 250px;
 }
 
-.total {
+.itemized {
+    border: 1px solid #fff;
+    box-sizing: border-box;
     color: #ccc;
-    margin-top: 1rem;
+    display: block;
+    padding: 0.75rem;
+    margin-top: -1px;
+    text-align: end;
+    width: 98px;
+}
+
+.label {
+    color: #ccc;
+}
+
+.label,
+.total {
+    align-self: center;
 }

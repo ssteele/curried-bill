@@ -10,10 +10,6 @@
 
 <main>
     <section class="field">
-        <select name="state" id="state"></select>
-    </section>
-
-    <section class="field">
         <input
             name="amount"
             id="amount"
@@ -22,6 +18,12 @@
             placeholder="Amount"
         >
     </section>
+    <span id="itemized-amount" class="itemized">$0.00</span>
+
+    <section class="field">
+        <select name="state" id="state"></select>
+    </section>
+    <span id="itemized-tax" class="itemized">$0.00</span>
 
     <section class="field">
         <input
@@ -32,6 +34,7 @@
             placeholder="Tip percent"
         >
     </section>
+    <span id="itemized-tip" class="itemized">$0.00</span>
 
     <section class="field">
         <input
@@ -42,12 +45,12 @@
             placeholder="Discount amount"
         >
     </section>
+    <span id="itemized-discount" class="itemized">$0.00</span>
 
-    <section class="total">
-        Total: <span id="total"></span>
-    </section>
+    <span class="label">Total: </span>
+    <span id="total" class="total itemized">$0.00</span>
 </main>
 
-<script type="module" src="./dist/index.js"></script>
+<script type="module" src="./js/index.js"></script>
 </body>
 </html>
