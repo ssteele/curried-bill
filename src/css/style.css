@@ -1,5 +1,6 @@
 body {
     background: #33333c;
+    font-family: monospace;
 }
 
 main {
@@ -8,7 +9,7 @@ main {
     flex-wrap: wrap;
     margin: 0 auto;
     min-height: 98vh;
-    width: 350px;
+    width: 490px;
 }
 
 .field {
@@ -35,10 +36,17 @@ select {
 }
 
 .label {
+    background-color: #445;
     color: #ccc;
+    width: 90px;
+    text-align: right;
 }
 
 .label,
 .total {
     align-self: center;
+}
+
+.fill {
+    width: 250px;
 }

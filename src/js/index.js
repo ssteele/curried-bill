@@ -73,7 +73,7 @@ const renderStateSelect = (states) => {
         return `<option value="${i.id}">${i.name} (${i.salesTax})</option>`;
     });
     stateSelectEl.innerHTML = `
-        <option value="">-- State tax --</option>
+        <option value="">-- State --</option>
         ${stateOptions}
     `;
 };

@@ -9,6 +9,7 @@
 <body>
 
 <main>
+    <span class="label">Purchase: </span>
     <section class="field">
         <input
             name="amount"
@@ -20,33 +21,37 @@
     </section>
     <span id="itemized-amount" class="itemized">$0.00</span>
 
+    <span class="label">Tax: </span>
     <section class="field">
         <select name="state" id="state"></select>
     </section>
     <span id="itemized-tax" class="itemized">$0.00</span>
 
+    <span class="label">Tip: </span>
     <section class="field">
         <input
             name="tip"
             id="tip"
             type="number"
             min="0"
-            placeholder="Tip percent"
+            placeholder="Percent"
         >
     </section>
     <span id="itemized-tip" class="itemized">$0.00</span>
 
+    <span class="label">Discount: </span>
     <section class="field">
         <input
             name="discount"
             id="discount"
             type="number"
             min="0"
-            placeholder="Discount amount"
+            placeholder="Amount"
         >
     </section>
     <span id="itemized-discount" class="itemized">- $0.00</span>
 
+    <section class="fill">&nbsp</section>
     <span class="label">Total: </span>
     <span id="total" class="total itemized">$0.00</span>
 </main>
