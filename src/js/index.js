@@ -11,22 +11,22 @@ import {
 
 // handle input fields
 const onChange = (id) => (handler) => document.getElementById(id).addEventListener(('change'), handler);
-const onChangeAmountInputEl = onChange('amount');
-const onChangeStateSelectEl = onChange('state');
-const onChangeTipInputEl = onChange('tip');
-const onChangeDiscountInputEl = onChange('discount');
+const onChangeAmountInput = onChange('input-amount');
+const onChangeStateSelect = onChange('select-state');
+const onChangeTipInput = onChange('input-tip');
+const onChangeDiscountInput = onChange('input-discount');
 
 // update dom element: html
 const updateElHtml = (id) => (content) => document.getElementById(id).innerHTML = content;
-const updateStateSelectEl = updateElHtml('state');
+const updateStateSelect = updateElHtml('select-state');
 
 // update dom element: text
 const updateElText = (id) => (content) => document.getElementById(id).innerText = content;
-const updateItemizedAmountEl = updateElText('itemized-amount');
-const updateItemizedTaxEl = updateElText('itemized-tax');
-const updateItemizedTipEl = updateElText('itemized-tip');
-const updateItemizedDiscountEl = updateElText('itemized-discount');
-const updateTotalOutputEl = updateElText('total');
+const updateItemizedAmount = updateElText('itemized-amount');
+const updateItemizedTax = updateElText('itemized-tax');
+const updateItemizedTip = updateElText('itemized-tip');
+const updateItemizedDiscount = updateElText('itemized-discount');
+const updateTotal = updateElText('total');
 
 const curry = (f) => {
     return function curried(...args) {
@@ -78,51 +78,51 @@ const renderStateSelect = (states) => {
     const stateOptions = states.map((i) => {
         return `<option value="${i.id}">${i.name} (${i.salesTax})</option>`;
     });
-    updateStateSelectEl(`
+    updateStateSelect(`
         <option value="">-- State --</option>
         ${stateOptions}
     `);
 };
 
 // handle amount input
-onChangeAmountInputEl((e) => {
+onChangeAmountInput((e) => {
     setAmount(e?.target?.value);
 
     const { amount, tax, tip, total } = calculate(state);
-    updateItemizedAmountEl(`$${amount.toFixed(2)}`);
-    updateItemizedTaxEl(`$${tax.toFixed(2)}`);
-    updateItemizedTipEl(`$${tip.toFixed(2)}`);
-    updateTotalOutputEl(`$${total.toFixed(2)}`);
+    updateItemizedAmount(`$${amount.toFixed(2)}`);
+    updateItemizedTax(`$${tax.toFixed(2)}`);
+    updateItemizedTip(`$${tip.toFixed(2)}`);
+    updateTotal(`$${total.toFixed(2)}`);
 });
 
 // handle state select
-onChangeStateSelectEl((e) => {
+onChangeStateSelect((e) => {
     const stateId = e?.target?.value;
     const { salesTax } = states.find((e) => stateId === e.id);
     setTax(salesTax);
 
     const { tax, total } = calculate(state);
-    updateItemizedTaxEl(`$${tax.toFixed(2)}`);
-    updateTotalOutputEl(`$${total.toFixed(2)}`);
+    updateItemizedTax(`$${tax.toFixed(2)}`);
+    updateTotal(`$${total.toFixed(2)}`);
 });
 
 // handle tip input
-onChangeTipInputEl((e) => {
+onChangeTipInput((e) => {
     setTip(e?.target?.value);
 
     const { tip, total } = calculate(state);
-    updateItemizedTipEl(`$${tip.toFixed(2)}`);
-    updateTotalOutputEl(`$${total.toFixed(2)}`);
+    updateItemizedTip(`$${tip.toFixed(2)}`);
+    updateTotal(`$${total.toFixed(2)}`);
 });
 
 // handle discount input
-onChangeDiscountInputEl((e) => {
+onChangeDiscountInput((e) => {
     setDiscount(e?.target?.value);
 
     const { tax, discount, total } = calculate(state);
-    updateItemizedTaxEl(`$${tax.toFixed(2)}`);
-    updateItemizedDiscountEl(`- $${discount.toFixed(2)}`);
-    updateTotalOutputEl(`$${total.toFixed(2)}`);
+    updateItemizedTax(`$${tax.toFixed(2)}`);
+    updateItemizedDiscount(`- $${discount.toFixed(2)}`);
+    updateTotal(`$${total.toFixed(2)}`);
 });
 
 // initialize
