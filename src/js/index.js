@@ -9,12 +9,18 @@ import {
     state,
 } from './state.js';
 
-// dom elements registry
-const amountInputEl = document.getElementById('amount');
-const stateSelectEl = document.getElementById('state');
-const tipInputEl = document.getElementById('tip');
-const discountInputEl = document.getElementById('discount');
+// handle input fields
+const onChange = (id) => (handler) => document.getElementById(id).addEventListener(('change'), handler);
+const onChangeAmountInputEl = onChange('amount');
+const onChangeStateSelectEl = onChange('state');
+const onChangeTipInputEl = onChange('tip');
+const onChangeDiscountInputEl = onChange('discount');
 
+// update dom element: html
+const updateElHtml = (id) => (content) => document.getElementById(id).innerHTML = content;
+const updateStateSelectEl = updateElHtml('state');
+
+// update dom element: text
 const updateElText = (id) => (content) => document.getElementById(id).innerText = content;
 const updateItemizedAmountEl = updateElText('itemized-amount');
 const updateItemizedTaxEl = updateElText('itemized-tax');
@@ -72,14 +78,14 @@ const renderStateSelect = (states) => {
     const stateOptions = states.map((i) => {
         return `<option value="${i.id}">${i.name} (${i.salesTax})</option>`;
     });
-    stateSelectEl.innerHTML = `
+    updateStateSelectEl(`
         <option value="">-- State --</option>
         ${stateOptions}
-    `;
+    `);
 };
 
 // handle amount input
-amountInputEl.addEventListener('change', (e) => {
+onChangeAmountInputEl((e) => {
     setAmount(e?.target?.value);
 
     const { amount, tax, tip, total } = calculate(state);
@@ -90,7 +96,7 @@ amountInputEl.addEventListener('change', (e) => {
 });
 
 // handle state select
-stateSelectEl.addEventListener('change', (e) => {
+onChangeStateSelectEl((e) => {
     const stateId = e?.target?.value;
     const { salesTax } = states.find((e) => stateId === e.id);
     setTax(salesTax);
@@ -101,7 +107,7 @@ stateSelectEl.addEventListener('change', (e) => {
 });
 
 // handle tip input
-tipInputEl.addEventListener('change', (e) => {
+onChangeTipInputEl((e) => {
     setTip(e?.target?.value);
     const { tip, total } = calculate(state);
     updateItemizedTipEl(`$${tip.toFixed(2)}`);
@@ -109,7 +115,7 @@ tipInputEl.addEventListener('change', (e) => {
 });
 
 // handle discount input
-discountInputEl.addEventListener('change', (e) => {
+onChangeDiscountInputEl((e) => {
     setDiscount(e?.target?.value);
 
     const { tax, discount, total } = calculate(state);
