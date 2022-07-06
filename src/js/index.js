@@ -14,11 +14,13 @@ const amountInputEl = document.getElementById('amount');
 const stateSelectEl = document.getElementById('state');
 const tipInputEl = document.getElementById('tip');
 const discountInputEl = document.getElementById('discount');
-const itemizedAmountEl = document.getElementById('itemized-amount');
-const itemizedTaxEl = document.getElementById('itemized-tax');
-const itemizedTipEl = document.getElementById('itemized-tip');
-const itemizedDiscountEl = document.getElementById('itemized-discount');
-const totalOutputEl = document.getElementById('total');
+
+const updateElText = (id) => (content) => document.getElementById(id).innerText = content;
+const updateItemizedAmountEl = updateElText('itemized-amount');
+const updateItemizedTaxEl = updateElText('itemized-tax');
+const updateItemizedTipEl = updateElText('itemized-tip');
+const updateItemizedDiscountEl = updateElText('itemized-discount');
+const updateTotalOutputEl = updateElText('total');
 
 const curry = (f) => {
     return function curried(...args) {
@@ -80,9 +82,11 @@ const renderStateSelect = (states) => {
 amountInputEl.addEventListener('change', (e) => {
     setAmount(e?.target?.value);
 
-    const { amount, total } = calculate(state);
-    itemizedAmountEl.innerText = `$${amount.toFixed(2)}`;
-    totalOutputEl.innerText =  `$${total.toFixed(2)}`;
+    const { amount, tax, tip, total } = calculate(state);
+    updateItemizedAmountEl(`$${amount.toFixed(2)}`);
+    updateItemizedTaxEl(`$${tax.toFixed(2)}`);
+    updateItemizedTipEl(`$${tip.toFixed(2)}`);
+    updateTotalOutputEl(`$${total.toFixed(2)}`);
 });
 
 // handle state select
@@ -92,17 +96,16 @@ stateSelectEl.addEventListener('change', (e) => {
     setTax(salesTax);
 
     const { tax, total } = calculate(state);
-    itemizedTaxEl.innerText = `$${tax.toFixed(2)}`;
-    totalOutputEl.innerText =  `$${total.toFixed(2)}`;
+    updateItemizedTaxEl(`$${tax.toFixed(2)}`);
+    updateTotalOutputEl(`$${total.toFixed(2)}`);
 });
 
 // handle tip input
 tipInputEl.addEventListener('change', (e) => {
     setTip(e?.target?.value);
-
     const { tip, total } = calculate(state);
-    itemizedTipEl.innerText = `$${tip.toFixed(2)}`;
-    totalOutputEl.innerText =  `$${total.toFixed(2)}`;
+    updateItemizedTipEl(`$${tip.toFixed(2)}`);
+    updateTotalOutputEl(`$${total.toFixed(2)}`);
 });
 
 // handle discount input
@@ -110,9 +113,9 @@ discountInputEl.addEventListener('change', (e) => {
     setDiscount(e?.target?.value);
 
     const { tax, discount, total } = calculate(state);
-    itemizedTaxEl.innerText = `$${tax.toFixed(2)}`;
-    itemizedDiscountEl.innerText = `- $${discount.toFixed(2)}`;
-    totalOutputEl.innerText =  `$${total.toFixed(2)}`;
+    updateItemizedTaxEl(`$${tax.toFixed(2)}`);
+    updateItemizedDiscountEl(`- $${discount.toFixed(2)}`);
+    updateTotalOutputEl(`$${total.toFixed(2)}`);
 });
 
 // initialize
