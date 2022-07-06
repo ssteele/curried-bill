@@ -46,21 +46,21 @@ const hasRequiredFields = ({amount}) => {
 }
 
 const calculate = (state = {}) => {
-    let total = 0;
-    const amount = state?.amount;
-    const calcTax = mulTax(state?.tax);
-    const calcTip = addTip(state?.tip);
-    const calcDiscount = subDiscount(state?.discount);
+    const { amount, tax, tip, discount } = state;
+    const calcTax = mulTax(tax);
+    const calcTip = addTip(tip);
+    const calcDiscount = subDiscount(discount);
 
+    let total = 0;
     if (hasRequiredFields(state)) {
         total = curriedBill(amount)(calcTax)(calcTip)(calcDiscount);
     }
 
     return {
         amount,
-        tax: calcTax(amount) - amount,
+        tax: calcTax(calcDiscount(amount)) - calcDiscount(amount),
         tip: calcTip(amount),
-        discount: state?.discount,
+        discount,
         total,
     };
 }
@@ -109,7 +109,8 @@ tipInputEl.addEventListener('change', (e) => {
 discountInputEl.addEventListener('change', (e) => {
     setDiscount(e?.target?.value);
 
-    const { discount, total } = calculate(state);
+    const { tax, discount, total } = calculate(state);
+    itemizedTaxEl.innerText = `$${tax.toFixed(2)}`;
     itemizedDiscountEl.innerText = `- $${discount.toFixed(2)}`;
     totalOutputEl.innerText =  `$${total.toFixed(2)}`;
 });
