@@ -109,6 +109,7 @@ onChangeStateSelectEl((e) => {
 // handle tip input
 onChangeTipInputEl((e) => {
     setTip(e?.target?.value);
+
     const { tip, total } = calculate(state);
     updateItemizedTipEl(`$${tip.toFixed(2)}`);
     updateTotalOutputEl(`$${total.toFixed(2)}`);
