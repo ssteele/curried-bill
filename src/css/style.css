@@ -3,6 +3,15 @@ body {
     font-family: monospace;
 }
 
+h1 {
+    color: #ccc;
+    left: 50%;
+    position: absolute;
+    margin-top: 2rem;
+    transform: translate(-50%, 0);
+    z-index: -1;
+}
+
 main {
     align-content: center;
     display: flex;
@@ -25,6 +34,7 @@ select {
 }
 
 .itemized {
+    background: #33333c;
     border: 1px solid #fff;
     box-sizing: border-box;
     color: #ccc;
