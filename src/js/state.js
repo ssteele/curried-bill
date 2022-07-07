@@ -1,8 +1,15 @@
+import {
+    states,
+} from './constants/index.js';
+
+export const defaultStateId = 'tx';
+const defaultTax = states.find((s) => defaultStateId === s.id)?.salesTax;
+
 // mutable state
 export const state = {
     amount: null,
     discount: 0,
-    tax: 0,
+    tax: defaultTax || 0,
     tip: 0,
 };
 

@@ -2,6 +2,7 @@ import {
     states,
 } from './constants/index.js';
 import {
+    defaultStateId,
     setAmount,
     setDiscount,
     setTax,
@@ -76,7 +77,11 @@ const calculate = (state = {}) => {
 // state select
 const renderStateSelect = (states) => {
     const stateOptions = states.map((i) => {
-        return `<option value="${i.id}">${i.name} (${i.salesTax})</option>`;
+        let selected = '';
+        if (defaultStateId === i.id) {
+            selected = 'selected';
+        }
+        return `<option ${selected} value="${i.id}">${i.name} (${i.salesTax})</option>`;
     });
     updateStateSelect(`
         <option value="">-- State --</option>
