@@ -1,4 +1,4 @@
-# Curry Town
+## Curry Town
 
 Currying is a functional programming (FP) paradigm that breaks down functions that take multiple arguments into a sequence of functions each taking only one argument.
 
@@ -21,9 +21,9 @@ console.log(sayHi('John'));     // Hi John
 console.log(sayHello('John'));  // Hello John
 ```
 
-This is a sandbox to play around with and learn currying. [Here is a helpful resource to learn more about practical currying](https://javascript.info/currying-partials).
+This is a sandbox to play around with and learn currying. Here is a [helpful resource](https://javascript.info/currying-partials) to learn more about practical currying.
 
-## develop
+### develop
 ```
 cd curry-town
 npm i
@@ -32,7 +32,7 @@ npm run watch
 
 Open `dist/index.html` in your preferred browser.
 
-## deploy
+### deploy
 ```
 npm run build
 copy `dist/*` to web server
