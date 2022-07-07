@@ -9,6 +9,7 @@ import {
     setTip,
     state,
 } from './state.js';
+import './style.css'
 
 // handle input fields
 const onChange = (id) => (handler) => document.getElementById(id).addEventListener(('change'), handler);
