@@ -1,7 +1,7 @@
 {
   "name": "curried-bill",
   "version": "0.0.1",
-  "description": "FP curried calculation of restaurant bills",
+  "description": "FP curried restaurant bill calculation",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
