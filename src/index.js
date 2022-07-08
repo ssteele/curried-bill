@@ -85,7 +85,7 @@ const renderStateSelect = (states) => {
         return `<option ${selected} value="${i.id}">${i.name} (${i.salesTax})</option>`;
     });
     updateStateSelect(`
-        <option value="">-- State --</option>
+        <option value="">-- State tax --</option>
         ${stateOptions}
     `);
 };

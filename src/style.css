@@ -5,7 +5,9 @@ body {
 }
 
 main {
-    padding-top: 10%;
+    align-content: center;
+    display: grid;
+    height: 90vh;
 }
 
 h1 {
@@ -29,7 +31,7 @@ h1 {
 .label,
 .field > * {
     box-sizing: border-box;
-    padding: 0.75rem;
+    padding: 1rem;
 }
 
 .field > * {
@@ -56,4 +58,24 @@ h1 {
 .total-label {
     margin-left: auto;
     width: 36%;
+}
+
+@media (max-width: 812px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-device-width: 812px) {
+    body {
+        font-size: 24px;
+    }
+
+    .container {
+        grid-template-columns: 0 50% 50%;
+    }
+
+    .field > * {
+        height: 100%;
+    }
 }
