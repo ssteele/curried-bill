@@ -7,54 +7,64 @@
 </head>
 <body>
 
-<h1>curry(t)(o)(w)(n)</h1>
-
 <main>
-    <span class="label">Tax: </span>
-    <section class="field">
-        <select name="state" id="select-state"></select>
-    </section>
-    <span id="itemized-tax" class="itemized">$0.00</span>
+    <h1>curry(t)(o)(w)(n)</h1>
 
-    <span class="label">Purchase: </span>
-    <section class="field">
-        <input
-            name="amount"
-            id="input-amount"
-            type="number"
-            min="0"
-            placeholder="Amount"
-        >
+    <section class="container">
+        <span class="label">Tax: </span>
+        <section class="field">
+            <select name="state" id="select-state"></select>
+        </section>
+        <span id="itemized-tax" class="itemized">$0.00</span>
     </section>
-    <span id="itemized-amount" class="itemized">$0.00</span>
 
-    <span class="label">Tip: </span>
-    <section class="field">
-        <input
-            name="tip"
-            id="input-tip"
-            type="number"
-            min="0"
-            placeholder="Percent"
-        >
+    <section class="container">
+        <span class="label">Purchase: </span>
+        <section class="field">
+            <input
+                name="amount"
+                id="input-amount"
+                type="number"
+                min="0"
+                placeholder="Amount"
+            >
+        </section>
+        <span id="itemized-amount" class="itemized">$0.00</span>
     </section>
-    <span id="itemized-tip" class="itemized">$0.00</span>
 
-    <span class="label">Discount: </span>
-    <section class="field">
-        <input
-            name="discount"
-            id="input-discount"
-            type="number"
-            min="0"
-            placeholder="Amount"
-        >
+    <section class="container">
+        <span class="label">Tip: </span>
+        <section class="field">
+            <input
+                name="tip"
+                id="input-tip"
+                type="number"
+                min="0"
+                placeholder="Percent"
+            >
+        </section>
+        <span id="itemized-tip" class="itemized">$0.00</span>
     </section>
-    <span id="itemized-discount" class="itemized">- $0.00</span>
 
-    <section class="fill">&nbsp</section>
-    <span class="label">Total: </span>
-    <span id="total" class="total itemized">$0.00</span>
+    <section class="container">
+        <span class="label">Discount: </span>
+        <section class="field">
+            <input
+                name="discount"
+                id="input-discount"
+                type="number"
+                min="0"
+                placeholder="Amount"
+            >
+        </section>
+        <span id="itemized-discount" class="itemized">- $0.00</span>
+    </section>
+
+    <section class="container">
+        <section class="fill">&nbsp</section>
+        <span class="label total-label">Total: </span>
+        <span id="total" class="total itemized">$0.00</span>
+    </section>
 </main>
 
 </body>
